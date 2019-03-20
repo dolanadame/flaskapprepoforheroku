@@ -1,0 +1,2 @@
+https://adamdolandataincubatorproject.herokuapp.com/
+https://git.heroku.com/adamdolandataincubatorproject.git
