@@ -1,14 +1,14 @@
 from flask import Flask, render_template, request, redirect
 
-webapp = Flask(__name__)
+app = Flask(__name__)
 
-@webapp.route('/')
+@app.route('/')
 def index():
-  return '<h> This is a header test </h>'
+  return render_template('index.html')
 
-@webapp.route('/about')
+@app.route('/about')
 def about():
   return render_template('about.html')
 
 if __name__ == '__main__':
-  webapp.run()
+  app.run(port=33507)
