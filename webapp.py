@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return render_template('index.html')
+  return '<h> This is a header test </h>'
 
 @app.route('/about')
 def about():
