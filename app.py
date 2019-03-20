@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return '<h1>This is a test of the web deployment</h1>'
+  return '<h1>This is a test of the web deployment - 20180320 15:05</h1>'
   #render_template('index.html')
 
 #@app.route('/about')
