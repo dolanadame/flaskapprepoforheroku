@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect
 from bokeh.embed import components 
 from bokeh.plotting import figure
 
-import requests
 import quandl
 import pandas
 
@@ -13,7 +12,7 @@ quandl.ApiConfig.api_key=api_key
 
 def get_plot(df):
 	#Make plot and customize
-	p=figure(x_axis_type="datetime",title=' Stock Price')
+	p=figure(x_axis_type="datetime",title= request.form['symbol']+' Stock Price')
 	p.xaxis.axis_label='Date'
 	p.yaxis.axis_label='Stock Price (USD)'
 	r=p.line(df.date,df.close)
@@ -22,9 +21,6 @@ def get_plot(df):
 @app.route('/')
 def home():
   return render_template('home.html')
-
-timestart='2016-01-01'
-timestop='2016-12-31'
 
 @app.route('/', methods=['POST'])
 def my_form_post():
@@ -49,11 +45,6 @@ def my_form_post():
 		p=get_plot(data)
 		script, div=components(p)
 		return render_template('post.html', script=script, div=div)
-
-	print(data)
-
-
-
 
 if __name__ == '__main__':
   app.run()
