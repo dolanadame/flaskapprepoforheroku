@@ -35,12 +35,21 @@ def my_form_post():
 
 	timestop='2016-12-31'
 	data = quandl.get_table('WIKI/PRICES', qopts = { 'columns': ['ticker', 'date', 'close'] }, ticker = symbol, date = { 'gte': date_start, 'lte': date_end })
-	p1=figure(x_axis_type="datetime",title=' Stock Price')
-	p1.xaxis.axis_label='Date'
-	p1.yaxis.axis_label='Stock Price (USD)'
-	r1=p1.line(data.date,data.close)
-	t=show(p1,notebook_handle=True)
-	return render_template('home.html')
+	if data.empty:
+		return render_template('postfail.html')
+		
+	else:
+		p1=figure(x_axis_type="datetime",title=' Stock Price')
+		p1.xaxis.axis_label='Date'
+		p1.yaxis.axis_label='Stock Price (USD)'
+		r1=p1.line(data.date,data.close)
+		t=show(p1,notebook_handle=True)
+		return render_template('post.html')
+
+	print(data)
+
+
+
 
 if __name__ == '__main__':
   app.run()
