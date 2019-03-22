@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect
-from bokeh.io import push_notebook, show, output_notebook
-from bokeh.layouts import row
+from bokeh.embed import components 
 from bokeh.plotting import figure
 
 import requests
@@ -11,6 +10,14 @@ app = Flask(__name__)
 api_key='jbRSL-X-sdwcuPrSpM8w'
 quandl.ApiConfig.api_key=api_key
 
+
+def get_plot(df):
+	#Make plot and customize
+	p=figure(x_axis_type="datetime",title=' Stock Price')
+	p.xaxis.axis_label='Date'
+	p.yaxis.axis_label='Stock Price (USD)'
+	r=p.line(df.date,df.close)
+	return(p)
 
 @app.route('/')
 def home():
@@ -39,12 +46,9 @@ def my_form_post():
 		return render_template('postfail.html')
 		
 	else:
-		p1=figure(x_axis_type="datetime",title=' Stock Price')
-		p1.xaxis.axis_label='Date'
-		p1.yaxis.axis_label='Stock Price (USD)'
-		r1=p1.line(data.date,data.close)
-		t=show(p1,notebook_handle=True)
-		return render_template('post.html')
+		p=get_plot(data)
+		script, div=components(p)
+		return render_template('post.html', script=script, div=div)
 
 	print(data)
 

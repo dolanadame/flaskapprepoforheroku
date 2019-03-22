@@ -1,10 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css" type="text/css" />
+    <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.js"></script>
+    {{ script | safe }}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Stock Ticker application to display closing price of a user-defined stock over a user-defined date range.">
-    <meta name="author" content="@gotoariel">
+
     <!-- <link rel="icon" href="favicon.ico"> -->
 
     <title>Adam Dolan's Stock App</title>
@@ -32,9 +35,11 @@
           <h>Note: Valid date ranges from 1996-01-01 to 2018-04-11</h><br>
           <h>Also make sure your desired company symbol existed during the date ranges you request!</h><br>
           </form>
-          <h1>The plot should show up in a separate window.</h1>
         </div>
       </div>
+    </div>
+    <div class=page>
+      {{ div | safe }}
     </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
