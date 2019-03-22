@@ -1,2 +1,5 @@
 Flask==1.0.2
 gunicorn==19.9.0
+bokeh==1.0.4
+Quandl==3.4.6
+pandas==0.24.0
