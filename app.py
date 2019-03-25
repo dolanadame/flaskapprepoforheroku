@@ -28,15 +28,15 @@ def my_form_post():
 	processed_symbol = symbol.upper()
 	symbol=processed_symbol
 
-	date_start = request.form['datestart']
-	processed_date_start = date_start.upper()
-	date_start = processed_date_start
+	# date_start = request.form['datestart']
+	# processed_date_start = date_start.upper()
+	# date_start = processed_date_start
 
-	date_end = request.form['dateend']
-	processed_date_end = date_end.upper()
-	date_end = processed_date_end
-
-	timestop='2016-12-31'
+	# date_end = request.form['dateend']
+	# processed_date_end = date_end.upper()
+	# date_end = processed_date_end
+	date_start='2016-01-01'
+	date_end='2016-12-31'
 	data = quandl.get_table('WIKI/PRICES', qopts = { 'columns': ['ticker', 'date', 'close'] }, ticker = symbol, date = { 'gte': date_start, 'lte': date_end })
 	if data.empty:
 		return render_template('postfail.html')
