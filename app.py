@@ -22,6 +22,10 @@ def get_plot(df):
 def home():
   return render_template('home.html')
 
+@app.route('/app')
+def home():
+  return render_template('home.html')
+
 @app.route('/', methods=['POST'])
 def my_form_post():
 	symbol = request.form['symbol']
