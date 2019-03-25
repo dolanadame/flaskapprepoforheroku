@@ -46,5 +46,7 @@ def my_form_post():
 		script, div=components(p)
 		return render_template('home.html', script=script, div=div)
 
-if __name__ == '__main__':
-  app.run(port=33507)
+# if __name__ == '__main__':
+#   app.run(port=33507)
+
+app.run(host='0.0.0.0')
