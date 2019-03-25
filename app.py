@@ -18,7 +18,7 @@ def get_plot(df):
 	r=p.line(df.date,df.close)
 	return(p)
 
-@app.route('/app')
+@app.route('/')
 def home():
   return render_template('home.html')
 
