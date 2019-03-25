@@ -18,11 +18,11 @@ def get_plot(df):
 	r=p.line(df.date,df.close)
 	return(p)
 
-@app.route('/')
+@app.route('/app')
 def home():
   return render_template('home.html')
 
-@app.route('/', methods=['POST'])
+@app.route('/app', methods=['POST'])
 def my_form_post():
 	symbol = request.form['symbol']
 	processed_symbol = symbol.upper()
