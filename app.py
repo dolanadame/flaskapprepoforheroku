@@ -44,7 +44,7 @@ def my_form_post():
 	else:
 		p=get_plot(data)
 		script, div=components(p)
-		return render_template('post.html', script=script, div=div)
+		return render_template('home.html', script=script, div=div)
 
 if __name__ == '__main__':
   app.run(port=33507)
