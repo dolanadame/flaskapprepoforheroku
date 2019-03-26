@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="utf-8" http-equiv="encoding"/>
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.js"></script>
+    {{ script | safe }}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content="Stock Ticker application to display closing price of a user-defined stock over a user-defined date range."/>
+    <title>Adam Dolan's Stock App</title>
+  </head>
+
+  <body>
+        <div class="col-lg-12 text-left">
+          <h2>Adam Dolan's Stock Ticker Milestone Project App</h2>
+          <h>Symbol (e.g. GOOG, MSFT, AAPL)</h><br />
+          <form method="POST">
+            <input name="symbol">
+          </form>
+          <h>The data shown is for 2016.  Make sure the stock symbol you select was publicly traded at the time and has not changed names.</h>
+        </div>
+        <div>
+          <h2>Something has gone wrong.  Did you enter a valid stock ticker symbol?</h2>
+        </div>
+    <div class='page'>
+      {{ div | safe }}
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -39,7 +39,7 @@ def my_form_post():
 	date_end='2016-12-31'
 	data = quandl.get_table('WIKI/PRICES', qopts = { 'columns': ['ticker', 'date', 'close'] }, ticker = symbol, date = { 'gte': date_start, 'lte': date_end })
 	if data.empty:
-		return render_template('postfail.html')
+		return render_template('homeERROR.html')
 		
 	else:
 		p=get_plot(data)
